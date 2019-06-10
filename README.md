@@ -22,6 +22,8 @@
 - [flutter_webview_plugin](https://pub.dev/packages/flutter_webview_plugin)
 - [http](https://pub.dev/packages/http)
 - [toast](https://pub.dev/packages/toast)
+- [shared_preferences](https://pub.dev/packages/shared_preferences)
+
 
 ## 项目截图
 
