@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_wanandroid/dao/tree_dao.dart';
 import 'package:my_wanandroid/model/tree_model.dart';
 import 'package:my_wanandroid/widget/tree_item_page.dart';
+import 'package:toast/toast.dart';
 
 class TreePage extends StatefulWidget {
   @override
@@ -56,7 +57,8 @@ class _TreePageState extends State<TreePage> {
                 backgroundColor: _getColor(items.name),
                 label: InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
                       return TreeItemPage(
                         cid: items.id,
                         title: items.name,
@@ -87,7 +89,8 @@ class _TreePageState extends State<TreePage> {
         _itemList = model.data;
       });
     }).catchError((error) {
-      print(error.toString());
+      Toast.show(error.toString(), context,
+          duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER);
     });
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_wanandroid/dao/tree_item_dao.dart';
 import 'package:my_wanandroid/model/article_model.dart';
 import 'package:my_wanandroid/widget/article_card.dart';
+import 'package:toast/toast.dart';
 
 class TreeItemPage extends StatefulWidget {
   final int cid;
@@ -66,7 +67,8 @@ class _TreeItemPageState extends State<TreeItemPage> {
         }
       });
     }).catchError((error) {
-      print(error.toString());
+      Toast.show(error.toString(), context,
+          duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER);
     });
   }
 

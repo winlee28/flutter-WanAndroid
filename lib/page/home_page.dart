@@ -7,6 +7,7 @@ import 'package:my_wanandroid/model/home_banner_model.dart';
 import 'package:my_wanandroid/widget/article_card.dart';
 import 'package:my_wanandroid/widget/home_drawer.dart';
 import 'package:my_wanandroid/widget/webview.dart';
+import 'package:toast/toast.dart';
 
 const double SCROLL_PIXELS_OFFSET = 500;
 
@@ -118,7 +119,8 @@ class _HomePageState extends State<HomePage> {
         bannerList = model.data;
       });
     }).catchError((error) {
-      print('==异常==' + error.toString());
+      Toast.show(error.toString(), context,
+          duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER);
     });
   }
 
@@ -160,7 +162,8 @@ class _HomePageState extends State<HomePage> {
         }
       });
     }).catchError((error) {
-      print(error.toString());
+      Toast.show(error.toString(), context,
+          duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER);
     });
   }
 

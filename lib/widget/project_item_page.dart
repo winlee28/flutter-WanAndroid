@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_wanandroid/dao/project_item_dao.dart';
 import 'package:my_wanandroid/model/article_model.dart';
 import 'package:my_wanandroid/widget/article_card.dart';
+import 'package:toast/toast.dart';
 
 class ProjectItemPage extends StatefulWidget {
   final int cid;
@@ -62,7 +63,8 @@ class _ProjectItemPageState extends State<ProjectItemPage> {
         }
       });
     }).catchError((error) {
-      print(error.toString());
+      Toast.show(error.toString(), context,
+          duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER);
     });
   }
 

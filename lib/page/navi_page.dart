@@ -3,6 +3,7 @@ import 'package:my_wanandroid/dao/navi_dao.dart';
 import 'package:my_wanandroid/model/article_model.dart';
 import 'package:my_wanandroid/model/navi_model.dart';
 import 'package:my_wanandroid/widget/webview.dart';
+import 'package:toast/toast.dart';
 
 class NaviPage extends StatefulWidget {
   @override
@@ -100,7 +101,8 @@ class _NaviPageState extends State<NaviPage> {
         naviData = model.naviData;
       });
     }).catchError((error) {
-      print(error.toString());
+      Toast.show(error.toString(), context,
+          duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER);
     });
   }
 }
