@@ -8,7 +8,7 @@
 
 > 首页 ：主要实现banner和首页文章列表以及侧拉菜单的用户个人中心。
 
-> 项目 ：主要实现的是项目分类以及项目列表数据。
+> 项目 ：主要实现的是项目分类以及项目列表数据，使用瀑布流模式实现。
  
 > 体系 ：主要实现的是体系数据和知识体系下文章，包括基础知识、开发环境、常用控件等等。
  
@@ -23,7 +23,7 @@
 - [http](https://pub.dev/packages/http)
 - [toast](https://pub.dev/packages/toast)
 - [shared_preferences](https://pub.dev/packages/shared_preferences)
-
+- [flutter_staggered_grid_view](https://github.com/letsar/flutter_staggered_grid_view)
 
 ## 项目截图
 
