@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:my_wanandroid/dao/project_item_dao.dart';
 import 'package:my_wanandroid/model/article_model.dart';
 import 'package:my_wanandroid/widget/article_card.dart';
+import 'package:my_wanandroid/widget/project_card.dart';
 import 'package:toast/toast.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class ProjectItemPage extends StatefulWidget {
   final int cid;
@@ -40,14 +42,23 @@ class _ProjectItemPageState extends State<ProjectItemPage> {
                   }
                 },
                 child: RefreshIndicator(
-                    child: ListView.builder(
-                        itemCount: itemList.length,
-                        itemBuilder: (context, index) {
-                          return ArticleCard(
+                  onRefresh: _onRefresh,
+                  child: Container(
+                    margin: EdgeInsets.only(left: 5, right: 5),
+                    child: new StaggeredGridView.countBuilder(
+                      crossAxisCount: 4,
+                      itemCount: itemList.length,
+                      itemBuilder: (BuildContext context, int index) =>
+                          new Container(
+                              child: ProjectCard(
                             articleItem: itemList[index],
-                          );
-                        }),
-                    onRefresh: _onRefresh)))
+                            index: index,
+                          )),
+                      staggeredTileBuilder: (int index) =>
+                          new StaggeredTile.fit(2),
+                    ),
+                  ),
+                )))
         : Center(
             child: CircularProgressIndicator(),
           );

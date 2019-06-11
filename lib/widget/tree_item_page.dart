@@ -27,7 +27,10 @@ class _TreeItemPageState extends State<TreeItemPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title),centerTitle: true,),
+      appBar: AppBar(
+        title: Text(widget.title),
+        centerTitle: true,
+      ),
       body: itemList.length > 0
           ? MediaQuery.removePadding(
               removeTop: true,
@@ -42,15 +45,16 @@ class _TreeItemPageState extends State<TreeItemPage> {
                       }
                     }
                   },
-                  child: RefreshIndicator(
-                      child: ListView.builder(
-                          itemCount: itemList.length,
-                          itemBuilder: (context, index) {
-                            return ArticleCard(
-                              articleItem: itemList[index],
-                            );
-                          }),
-                      onRefresh: _onRefresh)))
+                  child: SafeArea(
+                      child: RefreshIndicator(
+                          child: ListView.builder(
+                              itemCount: itemList.length,
+                              itemBuilder: (context, index) {
+                                return ArticleCard(
+                                  articleItem: itemList[index],
+                                );
+                              }),
+                          onRefresh: _onRefresh))))
           : Center(
               child: CircularProgressIndicator(),
             ),

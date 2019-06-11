@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:my_wanandroid/page/login_page.dart';
 import 'package:my_wanandroid/utils/prefs_provider.dart';
+import 'package:my_wanandroid/widget/webview.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeDrawer extends StatefulWidget {
@@ -74,12 +75,22 @@ class _HomeDrawerState extends State<HomeDrawer> {
             ),
             leading: Icon(Icons.picture_in_picture),
           ),
-          ListTile(
-            title: Text(
-              '玩安卓',
-              style: TextStyle(fontSize: 16),
+          InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return WebView(
+                  title: '玩安卓',
+                  url: 'https://www.wanandroid.com',
+                );
+              }));
+            },
+            child: ListTile(
+              title: Text(
+                '玩安卓',
+                style: TextStyle(fontSize: 16),
+              ),
+              leading: Icon(Icons.android),
             ),
-            leading: Icon(Icons.android),
           ),
           userName.length != 0
               ? InkWell(

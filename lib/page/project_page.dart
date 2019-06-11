@@ -18,7 +18,6 @@ class _ProjectPageState extends State<ProjectPage>
   void initState() {
     super.initState();
     _loadTabsData();
-    _tabController = new TabController(length: 0, vsync: this);
   }
 
   @override
@@ -66,6 +65,7 @@ class _ProjectPageState extends State<ProjectPage>
       });
     }).catchError((error) =>
         Toast.show(error.toString(), context,
-            duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER));
+            duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER)
+    );
   }
 }
