@@ -13,8 +13,19 @@ class ArticleCard extends StatefulWidget {
 }
 
 class _ArticleCardState extends State<ArticleCard> {
+  String name = "作者";
+
   @override
   Widget build(BuildContext context) {
+    if (widget.articleItem.author.isEmpty) {
+      name = "推荐者";
+      if (widget.articleItem.shareUser.isEmpty) {
+        widget.articleItem.author = "佚名";
+      } else {
+        widget.articleItem.author = widget.articleItem.shareUser;
+      }
+    }
+
     return GestureDetector(
       onTap: () => Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => WebView(
@@ -61,7 +72,7 @@ class _ArticleCardState extends State<ArticleCard> {
                   children: <Widget>[
                     Container(
                       child: Text(
-                        '作者：${widget.articleItem.author}',
+                        '$name：${widget.articleItem.author}',
                         style: TextStyle(fontSize: 12),
                       ),
                     ),

@@ -95,6 +95,7 @@ class ArticleItem {
   int userId;
   int visible;
   int zan;
+  String shareUser;
 
   ArticleItem(
       {this.apkLink,
@@ -120,7 +121,8 @@ class ArticleItem {
       this.type,
       this.userId,
       this.visible,
-      this.zan});
+      this.zan,
+      this.shareUser});
 
   ArticleItem.fromJson(Map<String, dynamic> json) {
     apkLink = json['apkLink'];
@@ -152,6 +154,7 @@ class ArticleItem {
     userId = json['userId'];
     visible = json['visible'];
     zan = json['zan'];
+    shareUser = json['shareUser'];
   }
 
   Map<String, dynamic> toJson() {
@@ -182,6 +185,7 @@ class ArticleItem {
     data['userId'] = this.userId;
     data['visible'] = this.visible;
     data['zan'] = this.zan;
+    data['shareUser'] = this.shareUser;
     return data;
   }
 }
