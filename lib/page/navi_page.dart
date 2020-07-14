@@ -10,7 +10,11 @@ class NaviPage extends StatefulWidget {
   _NaviPageState createState() => _NaviPageState();
 }
 
-class _NaviPageState extends State<NaviPage> {
+class _NaviPageState extends State<NaviPage> with AutomaticKeepAliveClientMixin{
+
+  @override
+  bool get wantKeepAlive => true;
+
   List<NaviData> naviData = [];
   int isSelected = 0;
 

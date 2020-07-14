@@ -16,7 +16,12 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin {
+
+
+  @override
+  bool get wantKeepAlive => true;
+
   List<BannerData> bannerList = [];
   List<ArticleItem> articleData = [];
 
@@ -174,4 +179,5 @@ class _HomePageState extends State<HomePage> {
             articleItem: articleData[index],
           );
   }
+
 }

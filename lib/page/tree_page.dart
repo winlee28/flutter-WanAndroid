@@ -9,7 +9,11 @@ class TreePage extends StatefulWidget {
   _TreePageState createState() => _TreePageState();
 }
 
-class _TreePageState extends State<TreePage> {
+class _TreePageState extends State<TreePage> with AutomaticKeepAliveClientMixin{
+
+  @override
+  bool get wantKeepAlive => true;
+
   List<TreeItems> _itemList = [];
 
   @override
